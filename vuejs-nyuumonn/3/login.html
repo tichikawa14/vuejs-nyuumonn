@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<title>はじめてのコンポーネント</title>
+<div id="login-example">
+  <user-login></user-login>
+</div>
+
+<script src="https://unpkg.com/vue@2.5.17"></script>
+<!-- テンプレート -->
+<script type="text/x-template" id="login-template">
+  <div id="login-template">
+    <div>
+      <input type="text" placeholder="ログインID" v-model="userid">
+    </div>
+    <div>
+      <input type="password" placeholder="パスワード" v-model="password">
+    </div>
+    <button @click="login()">ログイン</button>
+  </div>
+</script>
+<script src="login.js"></script>
