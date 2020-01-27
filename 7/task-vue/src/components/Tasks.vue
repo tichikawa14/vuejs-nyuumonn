@@ -43,6 +43,10 @@
         フィルタしない
       </li>
     </ul>
+
+    <h2>保存と復元</h2>
+    <button type="button" v-on:click="save">保存</button>
+    <button type="button" v-on:click="restore">復元</button>
   </div>
 </template>
 q
@@ -81,13 +85,13 @@ q
           id: task.id
         })
       },
-      addLabel() {
+      addLabel () {
         this.$store.commit('addLabel', {
           text: this.newLabelText
         })
         this.newLabelText = ''
       },
-      getLabelText(id) {
+      getLabelText (id) {
         const label = this.labels.filter(label => label.id === id)[0]
         return label ? label.text : ''
       },
@@ -95,6 +99,13 @@ q
         this.$store.commit('changeFilter', {
           filter: labelId
         })
+      },
+
+      save () {
+        this.$store.dispatch('save')
+      },
+      restore () {
+        this.$store.dispatch('restore')
       }
     }
   }
